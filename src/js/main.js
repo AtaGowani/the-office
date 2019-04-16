@@ -1,8 +1,11 @@
 var season = 0;
 var max_lines = 5;
+var max_local_calls = 8;
 var data = null;
+var local_calls = 0;
 
 function quotesAPI(callback) {
+  local_calls = 0;
   season = (Math.round((Math.random() * 17)) % 10) + 1
 
   let xobj = new XMLHttpRequest();
@@ -39,6 +42,16 @@ function backup(callback) {
   }
 }
 
+function showLoader() {
+  var loader = document.getElementById('loader');
+  loader.classList.remove('hide');
+}
+
+function removeLoader() {
+  var loader = document.getElementById('loader');
+  loader.classList.add('hide');
+}
+
 function parseQuote(response) {
   var obj = JSON.parse(response);
   var episode_number = Math.round(Math.random() * 17) % obj.data.length;
@@ -46,11 +59,19 @@ function parseQuote(response) {
   var quote_number = Math.round(Math.random() * 17) % obj.data[episode_number].quotes.length;
 
   displayQuote(obj.data[episode_number].quotes[quote_number], episode_number + 1, episode_name);
+  removeLoader();
 }
 
 function refreshQuote() {
   clearScreen();
-  data ? parseQuote(data) : quotesAPI(parseQuote);
+  showLoader();
+  
+  if (data && local_calls < max_local_calls) { 
+    parseQuote(data);
+    local_calls++;
+  } else { 
+    quotesAPI(parseQuote); 
+  }
 }
 
 function clearScreen() {
