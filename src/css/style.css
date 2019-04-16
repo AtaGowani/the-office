@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive|Nunito:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light|Nunito:300,400,700');
 
 * {
   margin: 0;
@@ -52,7 +52,11 @@ body {
 
 .details {
   text-align: center;
-  margin-bottom: 2rem; 
+  margin-bottom: 1rem; 
+}
+
+.details h1 {
+  font-size: 2rem;
 }
 
 p {
@@ -61,7 +65,7 @@ p {
 }
 
 h1 {
-  font-family: 'Cedarville Cursive', cursive;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 h3 {
@@ -119,6 +123,22 @@ h3 {
   body {
     padding-right: 15rem;
     padding-left: 15rem;
+  }
+
+  .title-div img {
+    height: 9rem;
+  }
+
+  .title-div .title-block h1 {
+    font-size: 3.3rem;
+  }
+
+  .title-block {
+    width: 30rem;
+  }
+
+  .details h1 {
+    font-size: 3rem;
   }
 }
 
