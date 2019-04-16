@@ -23,7 +23,7 @@ function parseQuote(response) {
   var episode_name = obj.data[episode_number].name;
   var quote_number = Math.round(Math.random() * 17) % obj.data[episode_number].quotes.length;
 
-  displayQuote(obj.data[episode_number].quotes[quote_number], episode_number, episode_name);
+  displayQuote(obj.data[episode_number].quotes[quote_number], episode_number + 1, episode_name);
 }
 
 function refreshQuote() {
