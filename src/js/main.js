@@ -23,16 +23,20 @@ function quotesAPI(callback) {
 function backup(callback) {
   season = 3;
 
-  let xobj = new XMLHttpRequest();
-  xobj.overrideMimeType('application/json');
-  xobj.open('GET', '/src/data/backup_s3.json', true);
-  xobj.onreadystatechange = () => {
-    if (xobj.readyState == 4 && xobj.status == '200') {
-      data = xobj.responseText;
-      callback(xobj.responseText);
-    }
+  switch (season) {
+    case 3:
+      let xobj = new XMLHttpRequest();
+      xobj.overrideMimeType('application/json');
+      xobj.open('GET', '/src/data/backup_s3.json', true);
+      xobj.onreadystatechange = () => {
+        if (xobj.readyState == 4 && xobj.status == '200') {
+          data = xobj.responseText;
+          callback(xobj.responseText);
+        }
+      }
+      xobj.send(null);
+      break;
   }
-  xobj.send(null);
 }
 
 function parseQuote(response) {
@@ -84,5 +88,38 @@ function displayQuote(quotes, e_num, e_name) {
 }
 
 window.addEventListener('load', () => {
+  var audio_control = document.getElementsByClassName('audio-controls')[0];
+  var audio = document.getElementById('background-audio');
+
+  audio.play().then(() => { console.log("Autoplaying Music"); })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+  audio_control.addEventListener('click',  () => {
+    if (!audio_control.firstElementChild.classList.contains('fa-undo')) {
+      document.getElementById('background-audio').muted = !document.getElementById('background-audio').muted;
+    }
+
+    if (audio_control.firstElementChild.classList.contains('fa-volume-up')) {
+      audio_control.firstElementChild.classList = 'fas fa-volume-off';
+    } else if (audio_control.firstElementChild.classList.contains('fa-volume-off')) {
+      audio_control.firstElementChild.classList = 'fas fa-volume-up';
+    } else if (audio_control.firstElementChild.classList.contains('fa-undo')) {
+      audio_control.firstElementChild.classList = 'fas fa-volume-up';
+      audio.play();
+    }
+  });
+
+  var x = setInterval(() => {
+    var audio_control = document.getElementsByClassName('audio-controls')[0];
+    var audio = document.getElementById('background-audio');
+    console.log("Audio is paused: " + audio.paused);
+    if (audio.paused) {
+      audio_control.firstElementChild.classList = 'fas fa-undo';
+      // clearInterval(x);
+    }
+  }, 1000);
+
   quotesAPI(parseQuote);
 });
