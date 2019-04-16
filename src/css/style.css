@@ -14,6 +14,7 @@ body {
   font-family: 'Nunito', sans-serif;
   margin: 1rem;
   text-align: center;
+  padding: 1rem 1rem;
 }
 
 .title-block {
@@ -27,6 +28,7 @@ body {
 
 .title-div .title-block h1 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2.3rem;
   padding: 1rem;
 }
 
@@ -65,45 +67,58 @@ h3 {
   font-weight: 300;
 }
 
-#refresh {
+.refresh {
   position: fixed;
   bottom: 20px;
-  right: 20px; 
+  right: 47%;
   background-color: #ffffff;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 40px;
-  box-shadow: 0px 2px 7px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.3);
   padding: 17px 0 0 17px;
+  opacity: 0.8;
 }
 
 .icon {
-  fill: #d3d3d3;
+  fill: #676767;
   transform: rotate(0deg);
   transition: fill .25s ease, transform .25s ease;
-  margin-left: -0.8rem;
+  margin-left: -0.9rem;
+  margin-top: .2rem;
 }
 
-.icon:hover {
+.refresh:hover .icon {
   fill: #1059FF;
   transform: rotate(180deg);
+}
+
+.refresh:hover {
+  opacity: 1;
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
   body {
-    padding: 0 10rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
-
+  body {
+    padding-right: 10rem;
+    padding-left: 10rem;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-
+  body {
+    padding-right: 15rem;
+    padding-left: 15rem;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
