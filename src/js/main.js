@@ -9,6 +9,24 @@ function quotesAPI(callback) {
   xobj.overrideMimeType('application/json');
   xobj.open('GET', 'https://the-office-api.herokuapp.com/season/' + season + '/format/quotes', true);
   xobj.onreadystatechange = () => {
+    console.log(xobj.status);
+    if (xobj.readyState == 4 && xobj.status == '200') {
+      data = xobj.responseText;
+      callback(xobj.responseText);
+    } else if (xobj.status != '200') {
+      backup(callback);
+    }
+  }
+  xobj.send(null);
+}
+
+function backup(callback) {
+  season = 3;
+
+  let xobj = new XMLHttpRequest();
+  xobj.overrideMimeType('application/json');
+  xobj.open('GET', '/src/data/backup_s3.json', true);
+  xobj.onreadystatechange = () => {
     if (xobj.readyState == 4 && xobj.status == '200') {
       data = xobj.responseText;
       callback(xobj.responseText);
