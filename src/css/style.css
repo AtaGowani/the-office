@@ -15,6 +15,7 @@ body {
   margin: 1rem;
   text-align: center;
   padding: 1rem 1rem;
+  background: url('../imgs/wood.jpg');
 }
 
 .title-block {
