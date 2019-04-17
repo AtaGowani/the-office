@@ -30,8 +30,19 @@ body {
   animation-iteration-count: infinite; 
 }
 
+.loader p {
+  font: bold 190% Consolas, Monaco, monospace;
+	width: 60%;
+	margin: 0 auto;
+	white-space: nowrap;
+  overflow: hidden;
+  animation: typing 1s steps(10, end) infinite;
+	-webkit-animation: typing 1s steps(10, end) infinite;
+}
+
 .loader {
   margin-top: 4rem;
+  text-align: center;
 }
 
 .social-icon {
@@ -174,6 +185,16 @@ h3 {
     padding-right: 10rem;
     padding-left: 10rem;
   }
+
+  .loader p {
+    font: bold 300% Consolas, Monaco, monospace;
+    width: 60%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 1s steps(10, end) infinite;
+    -webkit-animation: typing 1s steps(10, end) infinite;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -267,4 +288,12 @@ h3 {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes typing { 
+  from { width: 0; } 
+}
+
+@-webkit-keyframes typing { 
+  from { width: 0; } 
 }
