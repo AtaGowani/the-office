@@ -144,7 +144,7 @@ h3 {
 .refresh {
   position: fixed;
   bottom: 20px;
-  right: 47%;
+  right: 43%;
   background-color: #ffffff;
   width: 50px;
   height: 50px;
@@ -195,6 +195,10 @@ h3 {
     animation: typing 1s steps(10, end) infinite;
     -webkit-animation: typing 1s steps(10, end) infinite;
   }
+
+  .refresh {
+    right: 47%;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -221,7 +225,7 @@ h3 {
   }
 
   .loader img {
-    height: 20rem;
+    height: 16rem;
   }
 }
 
