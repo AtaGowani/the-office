@@ -154,6 +154,12 @@ h3 {
   opacity: 0.6;
 }
 
+.disabled {
+  cursor: none;
+  pointer-events: none;
+  background-color: #8f8f8f
+}
+
 .icon {
   fill: #676767;
   transform: rotate(0deg);

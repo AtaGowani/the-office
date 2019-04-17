@@ -1,6 +1,6 @@
 var season = 0;
 var max_lines = 5;
-var max_local_calls = 8;
+var max_local_calls = 10;
 var data = null;
 var local_calls = 0;
 
@@ -44,11 +44,17 @@ function backup(callback) {
 
 function showLoader() {
   var loader = document.getElementById('loader');
+  var refresh_btn = document.getElementById('refresh');
+
+  refresh_btn.classList.add('disabled');
   loader.classList.remove('hide');
 }
 
 function removeLoader() {
   var loader = document.getElementById('loader');
+  var refresh_btn = document.getElementById('refresh');
+
+  refresh_btn.classList.remove('disabled');
   loader.classList.add('hide');
 }
 
