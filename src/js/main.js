@@ -30,7 +30,7 @@ function backup(callback) {
     case 3:
       let xobj = new XMLHttpRequest();
       xobj.overrideMimeType('application/json');
-      xobj.open('GET', 'https://atagowani.github.io/the-office/src/data/backup_s3.json', true);
+      xobj.open('GET', 'https://atagowani.com/the-office/src/data/backup_s3.json', true);
       xobj.onreadystatechange = () => {
         if (xobj.readyState == 4 && xobj.status == '200') {
           data = xobj.responseText;
