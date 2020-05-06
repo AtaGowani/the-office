@@ -45,22 +45,22 @@ body {
   text-align: center;
 }
 
-.social-icon {
-  cursor: pointer;
-  opacity: 0.6;
-  font-size: 3rem;
+.attribution {
+  font-weight: 800;
+  font-size: 1.3rem;
   position: fixed;
   position: fixed;
   bottom: 1rem;
   right: 2rem;
 }
 
-.social-icon:hover {
-  opacity: 1;
+.attribution a {
+  opacity: 0.8;
+  color: #000;
 }
 
-.social-icon a {
-  color: #000;
+.attribution a:hover {
+  opacity: 1;
 }
 
 .audio-controls {
